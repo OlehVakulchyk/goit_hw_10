@@ -1,9 +1,5 @@
 from collections import UserDict
 
-
-
-
-
 class Field:
     pass
 
@@ -34,29 +30,3 @@ class Record:
 class AddressBook(UserDict):
     def add_record(self, record: Record):
         self.data[record.name.name] = record
-
-
-if __name__ == '__main__':
-    name = Name('Bill')
-    phone = Phone('1234567890')
-    phone1 = Phone('0987654321')
-    rec = Record(name, phone)
-    rec.add_phone(phone1)
-    print(type(rec.phones))
-    ab = AddressBook()
-    print(ab.data)
-    ab.add_record(rec)
-    print(ab[name.name].phones)
-    
-
-    assert isinstance(ab['Bill'], Record)
-    assert isinstance(ab['Bill'].name, Name)
-    assert isinstance(ab['Bill'].phones, list)
-    assert isinstance(ab['Bill'].phones[0], Phone)
-    assert ab['Bill'].phones[0].phone == '1234567890'
-
-    print('All Ok)')
-
-p = Name
-p.name = 'Bob'
-print(f'My name {p.name}')
